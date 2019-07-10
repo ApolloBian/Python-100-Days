@@ -9,48 +9,16 @@
 ```Python
 def main():
     str1 = 'hello, world!'
-    # 通过len函数计算字符串的长度
-    print(len(str1))  # 13
-    # 获得字符串首字母大写的拷贝
     print(str1.capitalize())  # Hello, world!
-    # 获得字符串变大写后的拷贝
-    print(str1.upper())  # HELLO, WORLD!
-    # 从字符串中查找子串所在位置
-    print(str1.find('or'))  # 8
     print(str1.find('shit'))  # -1
-    # 与find类似但找不到子串时会引发异常
-    # print(str1.index('or'))
-    # print(str1.index('shit'))
-    # 检查字符串是否以指定的字符串开头
     print(str1.startswith('He'))  # False
-    print(str1.startswith('hel'))  # True
-    # 检查字符串是否以指定的字符串结尾
     print(str1.endswith('!'))  # True
-    # 将字符串以指定的宽度居中并在两侧填充指定的字符
     print(str1.center(50, '*'))
-    # 将字符串以指定的宽度靠右放置左侧填充指定的字符
     print(str1.rjust(50, ' '))
     str2 = 'abc123456'
-    # 从字符串中取出指定位置的字符(下标运算)
-    print(str2[2])  # c
-    # 字符串切片(从指定的开始索引到指定的结束索引)
-    print(str2[2:5])  # c12
-    print(str2[2:])  # c123456
-    print(str2[2::2])  # c246
-    print(str2[::2])  # ac246
-    print(str2[::-1])  # 654321cba
-    print(str2[-3:-1])  # 45
-    # 检查字符串是否由数字构成
     print(str2.isdigit())  # False
-    # 检查字符串是否以字母构成
     print(str2.isalpha())  # False
-    # 检查字符串是否以数字和字母构成
     print(str2.isalnum())  # True
-    str3 = '  jackfrued@126.com '
-    print(str3)
-    # 获得字符串修剪左右两侧空格的拷贝
-    print(str3.strip())
-
 
 if __name__ == '__main__':
     main()
@@ -261,28 +229,18 @@ Python中的集合跟数学上的集合是一致的，不允许有重复元素�
 ```Python
 def main():
     set1 = {1, 2, 3, 3, 3, 2}
-    print(set1)
-    print('Length =', len(set1))
     set2 = set(range(1, 10))
-    print(set2)
-    set1.add(4)
-    set1.add(5)
     set2.update([11, 12])
-    print(set1)
-    print(set2)
     set2.discard(5)
     # remove的元素如果不存在会引发KeyError
     if 4 in set2:
         set2.remove(4)
-    print(set2)
     # 遍历集合容器
-    for elem in set2:
-        print(elem ** 2, end=' ')
-    print()
     # 将元组转换成集合
     set3 = set((1, 2, 3, 3, 2, 1))
     print(set3.pop())
     print(set3)
+
     # 集合的交集、并集、差集、对称差运算
     print(set1 & set2)
     # print(set1.intersection(set2))
@@ -292,15 +250,12 @@ def main():
     # print(set1.difference(set2))
     print(set1 ^ set2)
     # print(set1.symmetric_difference(set2))
+
     # 判断子集和超集
     print(set2 <= set1)
     # print(set2.issubset(set1))
-    print(set3 <= set1)
-    # print(set3.issubset(set1))
     print(set1 >= set2)
     # print(set1.issuperset(set2))
-    print(set1 >= set3)
-    # print(set1.issuperset(set3))
 
 
 if __name__ == '__main__':
@@ -316,30 +271,9 @@ if __name__ == '__main__':
 ```Python
 def main():
     scores = {'骆昊': 95, '白元芳': 78, '狄仁杰': 82}
-    # 通过键可以获取字典中对应的值
-    print(scores['骆昊'])
-    print(scores['狄仁杰'])
-    # 对字典进行遍历(遍历的其实是键再通过键取对应的值)
-    for elem in scores:
-        print('%s\t--->\t%d' % (elem, scores[elem]))
-    # 更新字典中的元素
-    scores['白元芳'] = 65
-    scores['诸葛王朗'] = 71
     scores.update(冷面=67, 方启鹤=85)
-    print(scores)
-    if '武则天' in scores:
-        print(scores['武则天'])
-    print(scores.get('武则天'))
-    # get方法也是通过键获取对应的值但是可以设置默认值
-    print(scores.get('武则天', 60))
-    # 删除字典中的元素
-    print(scores.popitem())
     print(scores.popitem())
     print(scores.pop('骆昊', 100))
-    # 清空字典
-    scores.clear()
-    print(scores)
-
 
 if __name__ == '__main__':
     main()
